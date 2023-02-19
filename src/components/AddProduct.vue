@@ -19,7 +19,7 @@
           ></v-text-field>
         </v-col>
       </v-row>
-      <v-btn type="submit" variant="outlined">
+      <v-btn type="submit" color="indigo">
         Add Product
       </v-btn>
       

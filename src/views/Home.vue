@@ -4,20 +4,15 @@ import ProductList from '@/components/ProductList.vue';
 
 <template>
   <main>
+    <h1 class="py-6">Home Stock</h1>
     <ProductList />
-    
-    <v-container>
-      <v-row justify="space-between" class="text-center">
-        <v-col>
-          <RouterLink to="/create">
-            <v-btn
-            color="indigo"
-            >Create
-            </v-btn>
-          </RouterLink>
-        </v-col>
-      </v-row>
-    </v-container>
+      <RouterLink to="/create" id="create-button">
+        <v-btn
+        icon="mdi-plus"
+        color="indigo"
+        >
+        </v-btn>
+      </RouterLink>
   </main>
 </template>
 <style>
