@@ -46,6 +46,7 @@
         if(name) {
           const list = JSON.parse(localStorage.getItem('productList') || '[]');
           list.push({
+            id: Date.now(),
             name,
             date,
           });
