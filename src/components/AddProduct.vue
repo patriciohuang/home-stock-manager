@@ -14,15 +14,18 @@
         <v-col cols="12">
           <v-text-field
             type="date"
+            :rules="dateRules"
+            required
             v-model="expirationDate"
             label="Expiration day"
           ></v-text-field>
         </v-col>
       </v-row>
-      <v-btn type="submit" color="indigo">
-        Add Product
-      </v-btn>
-      
+      <div class="d-flex justify-center ma-6">
+        <v-btn type="submit" color="indigo" >
+          Add Product
+        </v-btn>
+      </div>
     </v-container>
   </v-form>
 </template>
@@ -38,6 +41,12 @@
         (value) => {
           if (value) return true
           return 'Product name is requred.'
+        },
+      ],
+      dateRules: [
+        (value) => {
+          if (value) return true
+          return 'Expiration date is requred.'
         },
       ],
     }),
