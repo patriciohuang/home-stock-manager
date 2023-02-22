@@ -2,10 +2,15 @@
   <div v-if="productList.length === 0" class="d-flex justify-center ma-6">
     <p>Currently you haven't any product</p>
   </div>
-  <Product :productList="productList" :dialogs="dialogs" :currentDay="currentDay"/>
+  <v-row v-for="item in sorted" :key="item.id">
+    <v-col>
+      <Product  
+        :dialogs="dialogs" 
+        :item="item"/>
+    </v-col>
+  </v-row>
 </template>
 <script>
-  import moment from 'moment';
   import Product from '@/components/Product.vue';
 
   export default {
@@ -16,7 +21,6 @@
     data: ()=> ({
       productList: [],
       dialogs: {},
-      currentDay: ''
     }),
     mounted() {
       this.productList = JSON.parse(localStorage.getItem('productList') || '[]');
@@ -24,8 +28,13 @@
         dialogs[product.id] = false;
         return dialogs;
       }, {});
-      this.currentDay = moment().local().format('YYYY-MM-DD')
-      console.log(this.productList)
     },
+    computed: {
+      sorted() {
+        return this.productList.sort((a,b)=> {
+          return new Date(a.date) - new Date(b.date);
+        });
+      },
+    }
   }
 </script>
