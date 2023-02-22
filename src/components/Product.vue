@@ -2,30 +2,7 @@
   <v-card :title="item.name" :subtitle="item.date">
     <v-row class="pa-6" justify="space-between">
       <div>
-        <v-chip
-          class="ma-2"
-          color="red"
-          text-color="white"
-          v-if="diffDay(item.date) === 0"
-        >
-          Expires today
-        </v-chip>
-        <v-chip
-          class="ma-2"
-          color="amber-darken-3"
-          text-color="white"
-          v-else-if="diffDay(item.date) === 1"
-        >
-          Expires tomorrow
-        </v-chip>
-        <v-chip
-          class="ma-2"
-          color="brown-darken-4"
-          text-color="white"
-          v-else-if="diffDay(item.date) <= -1"
-        >
-          Expired
-        </v-chip>
+        <ExpireChip :date="item.date"/>
       </div>
       <v-dialog
         v-model="dialog"
@@ -67,29 +44,21 @@
   </v-card>
 </template>
 <script>
-import moment from 'moment';
-  export default {
-    name: "Product",
-    props: {
-      item: Object
+import ExpireChip from './ExpireChip.vue';
+export default {
+  name: "Product",
+  props: {
+    item: Object
+  },
+  data: () => ({
+    dialog: false,
+  }),
+  methods: {
+    deleteProduct: function (item) {
+      this.$emit("deleteProduct", item);
+      this.dialog = false;
     },
-    data: ()=> ({
-      dialog: false,
-      currentDay: ''
-    }),
-    mounted() {
-      this.currentDay = moment().local().format('YYYY-MM-DD')
-    },
-    methods : {
-      deleteProduct : function (item) {
-        this.$emit("deleteProduct", item);
-        this.dialog = false;
-      },
-      diffDay(day) {
-        let a = moment(day);
-        let b = moment(this.currentDay);
-        return a.diff(b, 'days');
-      }
-    }
-  }
+  },
+  components: { ExpireChip }
+}
 </script>
