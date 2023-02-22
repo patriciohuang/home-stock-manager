@@ -28,7 +28,7 @@
         </v-chip>
       </div>
       <v-dialog
-        v-model="dialogs[item.id]"
+        v-model="dialog"
         width="auto"
       >
         <template v-slot:activator="{ props }">
@@ -49,7 +49,7 @@
             <v-btn
               color="green-darken-1"
               variant="tonal"
-              @click="dialogs[item.id] = false"
+              @click="dialog = false"
             >
               No
             </v-btn>
@@ -71,10 +71,10 @@ import moment from 'moment';
   export default {
     name: "Product",
     props: {
-      dialogs: Object,
       item: Object
     },
     data: ()=> ({
+      dialog: false,
       currentDay: ''
     }),
     mounted() {
@@ -82,10 +82,8 @@ import moment from 'moment';
     },
     methods : {
       deleteProduct : function (item) {
-        const index = this.productList.indexOf(item);
-        this.productList.splice(index, 1);
-        localStorage.setItem('productList', JSON.stringify(this.productList));
-        this.dialogs[item.id] = false;
+        this.$emit("deleteProduct", item);
+        this.dialog = false;
       },
       diffDay(day) {
         let a = moment(day);

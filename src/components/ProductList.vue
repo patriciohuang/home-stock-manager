@@ -4,9 +4,7 @@
   </div>
   <v-row v-for="item in sorted" :key="item.id">
     <v-col>
-      <Product  
-        :dialogs="dialogs" 
-        :item="item"/>
+      <Product :item="item" @deleteProduct="deleteProduct"/>
     </v-col>
   </v-row>
 </template>
@@ -20,20 +18,22 @@
     },
     data: ()=> ({
       productList: [],
-      dialogs: {},
     }),
     mounted() {
       this.productList = JSON.parse(localStorage.getItem('productList') || '[]');
-      this.dialogs = this.productList.reduce((dialogs, product) => {
-        dialogs[product.id] = false;
-        return dialogs;
-      }, {});
     },
     computed: {
       sorted() {
         return this.productList.sort((a,b)=> {
           return new Date(a.date) - new Date(b.date);
         });
+      },
+    },
+    methods: {
+      deleteProduct : function (item) {
+        const index = this.productList.indexOf(item)
+        this.productList.splice(index, 1);
+        localStorage.setItem('productList', JSON.stringify(this.productList));
       },
     }
   }
