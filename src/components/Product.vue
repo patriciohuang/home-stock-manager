@@ -46,7 +46,6 @@
 <script>
 import ExpireChip from './ExpireChip.vue';
 export default {
-  name: "Product",
   props: {
     item: Object
   },

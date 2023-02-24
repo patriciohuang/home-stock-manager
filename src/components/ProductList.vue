@@ -12,10 +12,7 @@
   import Product from '@/components/Product.vue';
 
   export default {
-    name: "ProductList",
-    components: {
-      Product
-    },
+    components: { Product },
     data: ()=> ({
       productList: [],
     }),

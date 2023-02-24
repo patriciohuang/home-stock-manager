@@ -1,20 +1,16 @@
-<script setup>
-import ProductList from '@/components/ProductList.vue';
-</script>
-
 <template>
-  <main>
-    <h1 class="py-6">Home Stock</h1>
-    <ProductList />
-    <RouterLink to="/create" id="create-button">
-      <v-btn
-      icon="mdi-plus"
+    <RouterLink to="/home-stock">
+        <v-btn
       color="indigo"
       >
+      Home Stock
       </v-btn>
     </RouterLink>
-  </main>
+    <RouterLink to="/shopping-list">
+        <v-btn
+      color="indigo"
+      >
+      Shopping List
+      </v-btn>
+    </RouterLink>
 </template>
-<style>
-
-</style>
