@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <a @click="$router.go(-1)" id="go-back">
+        <a @click="$router.go(-1)" class="go-back">
           <v-btn
             icon="mdi-arrow-left"
             color="indigo"
@@ -40,6 +40,7 @@
   </v-form>
 </template>
 <script>
+import addSuggestion from '@/utils/suggestion'
 export default {
   data: ()=>({
     valid: false,
@@ -54,13 +55,14 @@ export default {
   methods: {
     addItem: function(name) {
       if(name) {
-          const list = JSON.parse(localStorage.getItem('shoppingList') || '[]');
-          list.push({
-            name
-          });
-          localStorage.setItem('shoppingList', JSON.stringify(list));
-          this.$router.push('/shopping-list')
-        }
+        const list = JSON.parse(localStorage.getItem('shoppingList') || '[]');
+        list.push({
+          name
+        });
+        localStorage.setItem('shoppingList', JSON.stringify(list));
+        addSuggestion(name);
+        this.$router.push('/shopping-list')
+      }
     }
   }
 }

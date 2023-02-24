@@ -30,8 +30,6 @@
   </v-form>
 </template>
 <script>
-  import router from '@/router';
-
   export default {
     data: () => ({
       valid: false,
@@ -52,16 +50,7 @@
     }),
     methods : {
       addProduct : function (name, date) {
-        if(name) {
-          const list = JSON.parse(localStorage.getItem('productList') || '[]');
-          list.push({
-            id: Date.now(),
-            name,
-            date,
-          });
-          localStorage.setItem('productList', JSON.stringify(list));
-          router.push('/')
-        }
+        this.$emit("addProduct", {name, date});
       }
     }
   }
