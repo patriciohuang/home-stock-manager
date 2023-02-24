@@ -1,24 +1,20 @@
 <template>
-  <v-container>
-      <v-row>
-        <v-col cols="12">
-          <a @click="$router.go(-1)" class="go-back">
-            <v-btn
-              icon="mdi-arrow-left"
-              color="indigo"
-              variant="outlined"
-            >
-            </v-btn>
-          </a>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" class="py-6">
-          <h2>Create new product</h2>
-        </v-col>
-      </v-row>
-  </v-container>
-  <AddProduct @addProduct="addProduct"/>
+  <v-layout>
+    <v-app-bar color="blue-grey-darken-2">
+      <RouterLink to="/home-stock">
+        <v-btn
+          icon
+          class="hidden-xs-only"
+        >
+          <v-icon color="white">mdi-arrow-left</v-icon>
+        </v-btn>
+      </RouterLink>
+      <v-app-bar-title>Create New Product</v-app-bar-title>
+    </v-app-bar>
+    <v-container class="pt-12">
+      <AddProduct @addProduct="addProduct"/>
+    </v-container>
+  </v-layout>
 </template>
 <script>
   import AddProduct from '../components/AddProduct.vue'

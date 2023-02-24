@@ -1,47 +1,46 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col cols="12">
-        <a @click="$router.go(-1)" class="go-back">
-          <v-btn
-            icon="mdi-arrow-left"
-            color="indigo"
-            variant="outlined"
-          >
-          </v-btn>
-        </a>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="12" class="py-6">
-        <h2>Add Item</h2>
-      </v-col>
-    </v-row>
-  </v-container>
-  <v-form v-model="valid" @submit.prevent="addItem(item)">
-    <v-container>
-      <v-row>
-        <v-col cols="12">
-          <v-text-field
-            v-model="item"
-            :rules="itemRules"
-            label="Item name"
-            required
-            clearable
-          ></v-text-field>
-        </v-col>
-      </v-row>
-      <div class="d-flex justify-center ma-6">
-        <v-btn type="submit" color="indigo" >
-          Add Item
+  <v-layout>
+    <v-app-bar color="blue-grey-darken-2">
+      <RouterLink to="/shopping-list">
+        <v-btn
+          icon
+          class="hidden-xs-only"
+        >
+          <v-icon color="white">mdi-arrow-left</v-icon>
         </v-btn>
-      </div>
+      </RouterLink>
+      <v-app-bar-title>Add Item</v-app-bar-title>
+    </v-app-bar>
+    <v-container class="pt-12">
+      <v-form v-model="valid" @submit.prevent="addItem(item)">
+        <v-container>
+          <v-row>
+            <v-col cols="12">
+              <v-text-field
+                v-model="item"
+                :rules="itemRules"
+                label="Item name"
+                required
+                clearable
+              ></v-text-field>
+            </v-col>
+          </v-row>
+          <div class="d-flex justify-center ma-6">
+            <v-btn type="submit" color="indigo" >
+              Add item
+            </v-btn>
+          </div>
+          <SuggestionList @add-item="addItem"/>
+        </v-container>
+      </v-form>
     </v-container>
-  </v-form>
+  </v-layout>
 </template>
 <script>
 import addSuggestion from '@/utils/suggestion'
+import SuggestionList from '../components/SuggestionList.vue'
 export default {
+  components: { SuggestionList },
   data: ()=>({
     valid: false,
     item: '',
