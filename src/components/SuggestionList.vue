@@ -1,11 +1,16 @@
 <template>
   <v-theme-provider theme="dark">
     <h3>Suggestions</h3>
-    <v-card
-      v-for="item in suggestionList"
-      class="pl-6"
+    <v-card 
+    class="mx-auto"
     >
-      <v-list @click="addItem(item)">{{ item }}</v-list>
+      <v-list density="compact">
+        <v-list-item 
+        v-for="item in suggestionList"
+        class="pl-6"
+        @click="addItem(item)">{{ item }}
+      </v-list-item >
+    </v-list>
     </v-card>
   </v-theme-provider>
 </template>
