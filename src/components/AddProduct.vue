@@ -5,20 +5,20 @@
         <v-col cols="12">
           <v-text-field
             v-model="name"
-            :rules="nameRules"
             label="Product name"
-            required
             clearable
+            :error="v$.name.$error"
           ></v-text-field>
+          <span class="text-red" v-if="v$.name.$error">Product name is requred.</span>
         </v-col>
         <v-col cols="12">
           <v-text-field
             type="date"
-            :rules="dateRules"
-            required
             v-model="expirationDate"
             label="Expiration day"
+            :error="v$.expirationDate.$error"
           ></v-text-field>
+          <span class="text-red" v-if="v$.expirationDate.$error">Expiration date is requred.</span>
         </v-col>
       </v-row>
       <div class="d-flex justify-center ma-6">
@@ -30,28 +30,28 @@
   </v-form>
 </template>
 <script>
-  export default {
-    data: () => ({
-      valid: false,
-      name: '',
-      expirationDate: '',
-      nameRules: [
-        (value) => {
-          if (value) return true
-          return 'Product name is requred.'
-        },
-      ],
-      dateRules: [
-        (value) => {
-          if (value) return true
-          return 'Expiration date is requred.'
-        },
-      ],
-    }),
-    methods : {
-      addProduct : function (name, date) {
+import useValidate from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
+export default {
+  data: () => ({
+    v$: useValidate(),
+    valid: false,
+    name: '',
+    expirationDate: '',
+  }),
+  methods : {
+    addProduct : function (name, date) {
+      this.v$.$validate()
+      if(!this.v$.$error) {
         this.$emit("addProduct", {name, date});
-      }
+      } 
     }
-  }
+  },
+  validations() {
+    return {
+      name: { required },
+      expirationDate: { required }
+    }
+  },
+}
 </script>
