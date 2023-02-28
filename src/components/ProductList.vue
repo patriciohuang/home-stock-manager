@@ -4,13 +4,12 @@
   </div>
   <v-row v-for="item in sorted" :key="item.id">
     <v-col>
-      <Product :item="item" @deleteProduct="deleteProduct"/>
+      <Product :item="item" @deleteProduct="deleteProduct" @addItemShopping="addItemShopping"/>
     </v-col>
   </v-row>
 </template>
 <script>
   import Product from '@/components/Product.vue';
-
   export default {
     components: { Product },
     data: ()=> ({
@@ -32,6 +31,15 @@
         this.productList.splice(index, 1);
         localStorage.setItem('productList', JSON.stringify(this.productList));
       },
+      addItemShopping: function(item) {
+        const list = JSON.parse(localStorage.getItem('shoppingList') || '[]');
+        const name = item.name;
+        list.push({
+          name
+        });
+        localStorage.setItem('shoppingList', JSON.stringify(list));
+        this.deleteProduct(item);
+      }
     }
   }
 </script>
