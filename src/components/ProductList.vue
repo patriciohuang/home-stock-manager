@@ -26,16 +26,19 @@
       },
     },
     methods: {
-      deleteProduct : function (item) {
-        const index = this.productList.indexOf(item)
+      deleteProduct : function (id) {
+        const index = this.productList.indexOf(id)
         this.productList.splice(index, 1);
         localStorage.setItem('productList', JSON.stringify(this.productList));
       },
       addItemShopping: function(item) {
         const list = JSON.parse(localStorage.getItem('shoppingList') || '[]');
         const name = item.name;
+        const id = item.id
         list.push({
-          name
+          id,
+          name,
+          checked: false
         });
         localStorage.setItem('shoppingList', JSON.stringify(list));
         this.deleteProduct(item);
