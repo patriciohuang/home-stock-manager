@@ -1,27 +1,29 @@
 <template>
-  <v-app-bar color="blue-grey-darken-2">
-    <GoBack />
-    <v-app-bar-title>Pending</v-app-bar-title>
-  </v-app-bar>
-  <p v-if="pendingList.length === 0">No pending yet</p>
-  <v-theme-provider v-else theme="dark">
-    <v-expansion-panels  >
-      <v-expansion-panel v-for="item in pendingList" :key="item.id">
-        <v-expansion-panel-title v-slot="{ open }">
-          {{ item.name }}
-        </v-expansion-panel-title>
-        <v-expansion-panel-text>
-          <AddToStock :item="item" @addToStock="addToStock"/>
-        </v-expansion-panel-text>
-      </v-expansion-panel>
-    </v-expansion-panels>
-  </v-theme-provider>
+  <main>
+    <v-app-bar color="blue-grey-darken-2">
+      <v-app-bar-title>Pending</v-app-bar-title>
+    </v-app-bar>
+    <p v-if="pendingList.length === 0">No pending yet</p>
+    <v-theme-provider v-else theme="dark">
+      <v-expansion-panels  >
+        <v-expansion-panel v-for="item in pendingList" :key="item.id">
+          <v-expansion-panel-title v-slot="{ open }">
+            {{ item.name }}
+          </v-expansion-panel-title>
+          <v-expansion-panel-text>
+            <AddToStock :item="item" @addToStock="addToStock"/>
+          </v-expansion-panel-text>
+        </v-expansion-panel>
+      </v-expansion-panels>
+    </v-theme-provider>
+  </main>
+  <NavigationDrawers />
 </template> 
 <script>
-import GoBack from '@/components/GoBack.vue'
 import AddToStock from '@/components/AddToStock.vue'
+import NavigationDrawers from '@/components/NavigationDrawers.vue';
 export default {
-  components: { AddToStock, GoBack },
+  components: { AddToStock, NavigationDrawers },
   data: ()=> ({
     shoppingList: [],
   }),

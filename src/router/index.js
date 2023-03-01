@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
 import HomeStock from '../views/HomeStock.vue'
 import ShoppingList from '../views/ShoppingList.vue'
 import Create from '../views/Create.vue'
@@ -7,11 +6,6 @@ import AddItem from '../views/AddItem.vue'
 import Pending from '../views/Pending.vue'
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
   {
     path: '/home-stock',
     name: 'home stock',
@@ -36,7 +30,11 @@ const routes = [
     path: '/pending',
     name: 'pending',
     component: Pending
-  }
+  },
+  {
+    path: '/',
+    redirect: '/home-stock',
+  },
 ]
 
 const router = createRouter({

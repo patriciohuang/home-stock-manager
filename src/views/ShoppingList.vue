@@ -1,7 +1,6 @@
 <template>
   <main>
     <v-app-bar color="blue-grey-darken-2">
-      <GoBack />
       <v-app-bar-title>Shopping List</v-app-bar-title>
     </v-app-bar>
     <v-container>
@@ -27,12 +26,13 @@
     </v-container>
     <AlertPending :shoppingList="shoppingList"/>
   </main>
+  <NavigationDrawers />
 </template>
 <script>
-import GoBack from '@/components/GoBack.vue'
 import AlertPending from '@/components/AlertPending.vue'
+import NavigationDrawers from '@/components/NavigationDrawers.vue';
 export default {
-  components: { GoBack, AlertPending },
+  components: { AlertPending, NavigationDrawers },
   data: ()=> ({
     shoppingList: [],
   }),

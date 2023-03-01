@@ -1,7 +1,6 @@
 <template>
   <main>
     <v-app-bar color="blue-grey-darken-2">
-      <GoBack />
       <v-app-bar-title>Home Stock</v-app-bar-title>
     </v-app-bar>
 
@@ -19,11 +18,12 @@
       </v-row>
     </v-container>
   </main>
+  <NavigationDrawers />
 </template>
 <script>
 import ProductList from '@/components/ProductList.vue';
-import GoBack from '@/components/Goback.vue';
+import NavigationDrawers from '@/components/NavigationDrawers.vue';
 export default {
-  components: { ProductList, GoBack }
+  components: { ProductList, NavigationDrawers }
 }
 </script>
