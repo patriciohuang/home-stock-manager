@@ -4,6 +4,7 @@ import HomeStock from '../views/HomeStock.vue'
 import ShoppingList from '../views/ShoppingList.vue'
 import Create from '../views/Create.vue'
 import AddItem from '../views/AddItem.vue'
+import Pending from '../views/Pending.vue'
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/shopping-list/add-item',
     name: 'add item',
     component: AddItem
+  },
+  {
+    path: '/pending',
+    name: 'pending',
+    component: Pending
   }
 ]
 
