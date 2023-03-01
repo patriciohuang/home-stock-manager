@@ -4,6 +4,7 @@
       <GoBack />
       <v-app-bar-title>Home Stock</v-app-bar-title>
     </v-app-bar>
+
     <v-container>
       <ProductList />
       <v-row>

@@ -25,12 +25,14 @@
         </v-btn>
       </RouterLink>
     </v-container>
+    <AlertPending :shoppingList="shoppingList"/>
   </main>
 </template>
 <script>
 import GoBack from '@/components/GoBack.vue'
+import AlertPending from '@/components/AlertPending.vue'
 export default {
-  components: { GoBack },
+  components: { GoBack, AlertPending },
   data: ()=> ({
     shoppingList: [],
   }),
