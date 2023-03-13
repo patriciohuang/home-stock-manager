@@ -12,7 +12,21 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 
-
+const myCustomDarkTheme = {
+  dark: false,
+  colors: {
+    background: '#161A1D',
+    surface: '#495057',
+    primary: '#377ef9',
+    secondary: '#1b3e70',
+    error: '#E07A5F',
+    info: '#3D405B',
+    success: '#81B29A',
+    warning: '#F2CC8F',
+    text: '#F4F1DE',
+    icon: '#adb5bd'
+  }
+}
 const vuetify = createVuetify({
   components,
   directives,
@@ -24,7 +38,10 @@ const vuetify = createVuetify({
     }
   },
   theme: {
-    defaultTheme: 'dark'
+    defaultTheme: 'myCustomDarkTheme',
+    themes: {
+      myCustomDarkTheme
+    }
   }
 })
 

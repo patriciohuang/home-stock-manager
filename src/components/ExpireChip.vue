@@ -1,24 +1,24 @@
 <template>
   <v-chip
     class="ma-2"
-    color="red"
-    text-color="white"
+    color="warn"
+    text-color="text"
     v-if="diff === 0"
   >
     Expires today
   </v-chip>
   <v-chip
     class="ma-2"
-    color="amber-darken-3"
-    text-color="white"
+    color="warn"
+    text-color="text"
     v-else-if="diff === 1"
   >
     Expires tomorrow
   </v-chip>
   <v-chip
     class="ma-2"
-    color="brown-darken-4"
-    text-color="white"
+    color="error"
+    text-color="text"
     v-else-if="diff <= -1"
   >
     Expired

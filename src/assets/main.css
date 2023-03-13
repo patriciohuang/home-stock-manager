@@ -3,7 +3,9 @@ h1 {
   display: flex;
   justify-content: center;
 }
-
+section {
+  padding-bottom: 100px;
+}
 a {
   text-decoration: none;
 }

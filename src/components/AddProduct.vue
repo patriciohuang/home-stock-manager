@@ -22,7 +22,7 @@
         </v-col>
       </v-row>
       <div class="d-flex justify-center ma-6">
-        <v-btn type="submit" color="indigo" >
+        <v-btn type="submit" color="primary" >
           Add Product
         </v-btn>
       </div>

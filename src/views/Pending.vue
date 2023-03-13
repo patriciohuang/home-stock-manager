@@ -1,10 +1,10 @@
 <template>
-  <main>
-    <v-app-bar color="blue-grey-darken-2">
+  <v-container>
+    <v-app-bar color="surface">
       <v-app-bar-title>Pending</v-app-bar-title>
     </v-app-bar>
     <p v-if="pendingList.length === 0">No pending yet</p>
-    <v-theme-provider v-else theme="dark">
+    <v-theme-provider v-else>
       <v-expansion-panels  >
         <v-expansion-panel v-for="item in pendingList" :key="item.id">
           <v-expansion-panel-title v-slot="{ open }">
@@ -16,8 +16,8 @@
         </v-expansion-panel>
       </v-expansion-panels>
     </v-theme-provider>
-  </main>
-  <NavigationDrawers />
+    <NavigationDrawers />
+  </v-container>  
 </template> 
 <script>
 import AddToStock from '@/components/AddToStock.vue'

@@ -1,6 +1,5 @@
 <template>
   <RouterLink to="/pending">
-    
     <v-alert v-if="show"
       density="compact"
       type="warning"

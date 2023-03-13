@@ -1,32 +1,30 @@
-<template>
-  <main>
-    <v-app-bar color="blue-grey-darken-2">
+<template> 
+  <v-container>
+    <v-app-bar color="surface">
       <v-app-bar-title>Shopping List</v-app-bar-title>
     </v-app-bar>
-    <v-container>
-      <v-row v-for="item in shoppingList" :key="item.name" class="d-flex align-center justify-space-between">
-          <v-checkbox v-model="item.checked"  @change="toggle()" :label="item.name" hide-details></v-checkbox>
-          <v-btn
-          variant="text"
-          icon="mdi-close"
-          color="blue-grey-lighten-3"
-          @click="deleteItem(item)"
-          >
-          </v-btn>
-      </v-row>
-      <RouterLink to="/shopping-list/add-item">
+    <v-row v-for="item in shoppingList" :key="item.name" class="d-flex align-center justify-space-between">
+        <v-checkbox v-model="item.checked"  @change="toggle()" :label="item.name" hide-details></v-checkbox>
         <v-btn
-          color="blue-grey"
-          prepend-icon="mdi-plus"
-          class="my-6"
+        variant="text"
+        icon="mdi-close"
+        color="blue-grey-lighten-3"
+        @click="deleteItem(item)"
         >
-          List item
         </v-btn>
-      </RouterLink>
-    </v-container>
+    </v-row>
+    <RouterLink to="/shopping-list/add-item">
+      <v-btn
+        color="primary"
+        prepend-icon="mdi-plus"
+        class="my-6"
+      >
+        List item
+      </v-btn>
+    </RouterLink>
     <AlertPending :shoppingList="shoppingList"/>
-  </main>
-  <NavigationDrawers />
+    <NavigationDrawers />
+  </v-container>
 </template>
 <script>
 import AlertPending from '@/components/AlertPending.vue'

@@ -1,9 +1,9 @@
 <template>
-  <v-app-bar color="blue-grey-darken-2">
-    <GoBack />
-    <v-app-bar-title>Create Product</v-app-bar-title>
-  </v-app-bar>
   <v-container>
+    <v-app-bar color="surface">
+      <GoBack />
+      <v-app-bar-title>Create Product</v-app-bar-title>
+    </v-app-bar>
     <AddProduct @addProduct="addProduct"/>
   </v-container>
 </template>

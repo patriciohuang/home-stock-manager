@@ -10,7 +10,7 @@
       >
         <template v-slot:activator="{ props }">
           <v-btn
-            color="red" 
+            color="error" 
             icon="mdi-delete"
             v-bind="props"
           >
@@ -23,7 +23,7 @@
           <v-card-text>Are you sure you want to delete this item?</v-card-text>
           <v-card-actions class="d-flex align-start flex-column mb-6">
             <v-btn
-              color="primary"
+              color="success"
               variant="flat"
               class="ma-2 pa-2"
               @click="() => deleteProduct(item)"
@@ -31,7 +31,7 @@
               Yes
             </v-btn>
             <v-btn
-              color="primary"
+              color="success"
               variant="flat"
               class="ma-2 pa-2"
               @click="() => addItemShopping(item)"
@@ -39,7 +39,7 @@
               Yes and add to shopping list
             </v-btn>
             <v-btn
-              color="secondary"
+              color="error"
               variant="flat"
               class="ma-2 pa-2"
               @click="dialog = false"

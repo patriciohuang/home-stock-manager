@@ -1,24 +1,22 @@
 <template>
-  <main>
-    <v-app-bar color="blue-grey-darken-2">
-      <v-app-bar-title>Home Stock</v-app-bar-title>
+  <v-container>
+    <v-app-bar color="surface">
+      <v-app-bar-title color="text">Home Stock</v-app-bar-title>
     </v-app-bar>
-
-    <v-container>
+    <section>
       <ProductList />
-      <v-row>
-        
-        <RouterLink to="/home-stock/create" id="create-button">
-          <v-btn
-          icon="mdi-plus"
-          color="indigo"
-          >
-          </v-btn>
-        </RouterLink>
-      </v-row>
-    </v-container>
-  </main>
-  <NavigationDrawers />
+        <v-row>
+          <RouterLink to="/home-stock/create" id="create-button">
+            <v-btn
+            icon="mdi-plus"
+            color="primary"
+            >
+            </v-btn>
+          </RouterLink>
+        </v-row>
+    </section>
+    <NavigationDrawers />
+  </v-container>
 </template>
 <script>
 import ProductList from '@/components/ProductList.vue';

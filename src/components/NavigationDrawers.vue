@@ -1,25 +1,22 @@
 <template>
     <v-bottom-navigation
       height="80px"
-      bg-color="blue-grey-darken-2"
+      bg-color="surface"
       grow
     >
     <RouterLink to="/home-stock">
-      <v-btn >
-        <v-icon>mdi-home</v-icon>
-        Home
+      <v-btn>
+        <v-icon color="icon">mdi-home</v-icon>
       </v-btn>
     </RouterLink>
     <RouterLink to="/shopping-list">
       <v-btn>
-        <v-icon>mdi-cart</v-icon>
-        Shopping List
+        <v-icon color="icon">mdi-cart</v-icon>
       </v-btn>
     </RouterLink>
     <RouterLink to="/pending">
       <v-btn>
-        <v-icon>mdi-account-clock</v-icon>
-        Pending
+        <v-icon color="icon">mdi-account-clock</v-icon>
       </v-btn>
     </RouterLink>
     </v-bottom-navigation>
