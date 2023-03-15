@@ -19,6 +19,11 @@
         <v-icon color="icon">mdi-account-clock</v-icon>
       </v-btn>
     </RouterLink>
+    <RouterLink to="/account">
+      <v-btn>
+        <v-icon color="icon">mdi-account</v-icon>
+      </v-btn>
+    </RouterLink>
     </v-bottom-navigation>
 </template>
 <script>

@@ -12,11 +12,32 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 
+
+//Google firebase
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBvMK5yb92il03SuQC5lXtlCSWUDDvRB40",
+  authDomain: "home-stock-manager-380714.firebaseapp.com",
+  projectId: "home-stock-manager-380714",
+  storageBucket: "home-stock-manager-380714.appspot.com",
+  messagingSenderId: "542142689373",
+  appId: "1:542142689373:web:a7830856238ac2d9dd5db4"
+};
+
+// Initialize Firebase
+initializeApp(firebaseConfig);
+
+
 const myCustomDarkTheme = {
   dark: false,
   colors: {
-    background: '#161A1D',
-    surface: '#495057',
+    background: '#B1A7A6',
+    surface: '#161A1D',
     primary: '#377ef9',
     secondary: '#1b3e70',
     error: '#E07A5F',
@@ -26,7 +47,7 @@ const myCustomDarkTheme = {
     text: '#F4F1DE',
     icon: '#adb5bd'
   }
-}
+};
 const vuetify = createVuetify({
   components,
   directives,
@@ -43,9 +64,9 @@ const vuetify = createVuetify({
       myCustomDarkTheme
     }
   }
-})
+});
 
-const app = createApp(App)
+const app = createApp(App);
 
 app.use(router)
 app.use(vuetify)
