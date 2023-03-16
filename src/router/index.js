@@ -12,7 +12,7 @@ import { async } from '@firebase/util'
 const routes = [
   {
     path: '/',
-    redirect: '/log-in',
+    redirect: '/home-stock',
   },
   {
     path: '/home-stock',
