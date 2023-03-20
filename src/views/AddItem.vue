@@ -50,7 +50,8 @@ export default {
         list.push({
           id: Date.now(),
           name,
-          checked: false
+          checked: false,
+          modified: Date.now()
         });
         localStorage.setItem('shoppingList', JSON.stringify(list));
         addSuggestion(name);

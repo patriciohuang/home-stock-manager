@@ -4,7 +4,7 @@
       <v-app-bar-title>Shopping List</v-app-bar-title>
     </v-app-bar>
     <v-row v-for="item in shoppingList" :key="item.name" class="d-flex align-center justify-space-between">
-        <v-checkbox v-model="item.checked"  @change="toggle()" :label="item.name" hide-details></v-checkbox>
+        <v-checkbox v-model="item.checked"  @change="toggle(item)" :label="item.name" hide-details></v-checkbox>
         <v-btn
         variant="text"
         icon="mdi-close"
@@ -43,7 +43,8 @@ export default {
         this.shoppingList.splice(index, 1);
         localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
       },
-      toggle: function() {
+      toggle: function(item) {
+        item.modified = Date.now();
         localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
       }
     }
