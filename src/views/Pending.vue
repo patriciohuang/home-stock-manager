@@ -22,6 +22,7 @@
 <script>
 import AddToStock from '@/components/AddToStock.vue'
 import NavigationDrawers from '@/components/NavigationDrawers.vue';
+import { saveList } from  '@/utils/firestore'
 export default {
   components: { AddToStock, NavigationDrawers },
   data: ()=> ({
@@ -36,7 +37,7 @@ export default {
     }
   },
   methods: {
-    addToStock: function({item, date}) {
+    addToStock: async function({item, date}) {
       console.log(item, date)
       const list = JSON.parse(localStorage.getItem('productList') || '[]');
       list.push({
@@ -44,10 +45,12 @@ export default {
         name: item.name,
         date
       });
+      await saveList('productList', list)
       localStorage.setItem('productList', JSON.stringify(list));
 
       const index = this.shoppingList.indexOf(item);
       this.shoppingList.splice(index, 1);
+      await saveList('shoppingList', this.shoppingList);
       localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
     }
   }

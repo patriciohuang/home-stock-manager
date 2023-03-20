@@ -28,6 +28,8 @@
   </v-theme-provider>
 </template>
 <script>
+import { saveList } from '../utils/firestore';
+
 export default {
   emits: ['addItem'],
   data: ()=> ({
@@ -40,9 +42,10 @@ export default {
     addItem: function(item) {
       this.$emit("addItem", item)
     },
-    deleteItem : function (item) {
+    deleteItem: async function (item) {
         const index = this.suggestionList.indexOf(item)
         this.suggestionList.splice(index, 1);
+        await saveList('suggestionList', this.suggestionList)
         localStorage.setItem('suggestionList', JSON.stringify(this.suggestionList));
       },
   }

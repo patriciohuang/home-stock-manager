@@ -29,6 +29,7 @@
 <script>
 import AlertPending from '@/components/AlertPending.vue'
 import NavigationDrawers from '@/components/NavigationDrawers.vue';
+import { saveList } from '../utils/firestore';
 export default {
   components: { AlertPending, NavigationDrawers },
   data: ()=> ({
@@ -38,13 +39,15 @@ export default {
     this.shoppingList = JSON.parse(localStorage.getItem('shoppingList') || '[]');
   },
   methods: {
-      deleteItem : function (item) {
+      deleteItem: async function (item) {
         const index = this.shoppingList.indexOf(item)
         this.shoppingList.splice(index, 1);
+        await saveList('shoppingList', this.shoppingList);
         localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
       },
-      toggle: function(item) {
+      toggle: async function(item) {
         item.modified = Date.now();
+        await saveList('shoppingList', this.shoppingList);
         localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
       }
     }

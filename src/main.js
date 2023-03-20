@@ -13,27 +13,6 @@ import * as directives from 'vuetify/directives'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 
 
-//Google firebase
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getFirestore } from 'firebase/firestore'
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyBvMK5yb92il03SuQC5lXtlCSWUDDvRB40",
-  authDomain: "home-stock-manager-380714.firebaseapp.com",
-  projectId: "home-stock-manager-380714",
-  storageBucket: "home-stock-manager-380714.appspot.com",
-  messagingSenderId: "542142689373",
-  appId: "1:542142689373:web:a7830856238ac2d9dd5db4"
-};
-
-// Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
-const db = getFirestore(firebaseApp);
 
 const myCustomDarkTheme = {
   dark: false,
