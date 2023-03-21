@@ -1,0 +1,31 @@
+{
+    "theme_color": "#161A1D",
+    "background_color": "#B1A7A6",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/https://home-stock-manager-qfxc4nd33-patriciohuang.vercel.app",
+    "name": "Home Stock Manager",
+    "short_name": "HSM",
+    "icons": [
+        {
+            "src": "statics/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "statics/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "statics/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "statics/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

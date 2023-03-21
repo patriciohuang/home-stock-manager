@@ -9,6 +9,16 @@ import LogIn from '../views/LogIn.vue'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { async } from '@firebase/util'
 
+if("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js").then(registation => {
+    console.log("SW Registered!");
+    console.log(registation);
+  }).catch(error => {
+    console.log("SW Registation Failed!");
+    console.log(error);
+  });
+}
+
 const routes = [
   {
     path: '/',
