@@ -3,7 +3,7 @@
     "background_color": "#B1A7A6",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/https://home-stock-manager-qfxc4nd33-patriciohuang.vercel.app",
+    "start_url": "/https://home-stock-manager.vercel.app",
     "name": "Home Stock Manager",
     "short_name": "HSM",
     "icons": [
