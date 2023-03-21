@@ -42,12 +42,12 @@ export default {
       deleteItem: async function (item) {
         const index = this.shoppingList.indexOf(item)
         this.shoppingList.splice(index, 1);
-        await saveList('shoppingList', this.shoppingList);
+        saveList('shoppingList', this.shoppingList);
         localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
       },
       toggle: async function(item) {
         item.modified = Date.now();
-        await saveList('shoppingList', this.shoppingList);
+        saveList('shoppingList', this.shoppingList);
         localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
       }
     }

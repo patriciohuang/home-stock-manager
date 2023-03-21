@@ -54,9 +54,9 @@ export default {
           checked: false,
           modified: Date.now()
         });
-        await saveList('shoppingList', list)
+        saveList('shoppingList', list)
         localStorage.setItem('shoppingList', JSON.stringify(list));
-        await addSuggestion(name);
+        addSuggestion(name);
         this.$router.go(-1)
       }
     }

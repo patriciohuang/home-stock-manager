@@ -7,6 +7,6 @@ export default async function addSuggestion(itemName) {
     list.splice(indexOf, 1);
   } 
   list.push(itemName);
-  await saveList('suggestionList', list)
+  saveList('suggestionList', list)
   localStorage.setItem('suggestionList', JSON.stringify(list));
 }

@@ -45,12 +45,12 @@ export default {
         name: item.name,
         date
       });
-      await saveList('productList', list)
+      saveList('productList', list)
       localStorage.setItem('productList', JSON.stringify(list));
 
       const index = this.shoppingList.indexOf(item);
       this.shoppingList.splice(index, 1);
-      await saveList('shoppingList', this.shoppingList);
+      saveList('shoppingList', this.shoppingList);
       localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
     }
   }

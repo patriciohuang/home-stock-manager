@@ -45,7 +45,7 @@ export default {
     deleteItem: async function (item) {
         const index = this.suggestionList.indexOf(item)
         this.suggestionList.splice(index, 1);
-        await saveList('suggestionList', this.suggestionList)
+        saveList('suggestionList', this.suggestionList)
         localStorage.setItem('suggestionList', JSON.stringify(this.suggestionList));
       },
   }

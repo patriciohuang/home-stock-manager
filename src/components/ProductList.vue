@@ -23,14 +23,8 @@ export default {
     shoppingList: [],
   }),
   async mounted() {
-    this.productList = [ ...(await getList('productList'))];
-    console.log('productList', this.productList)
-    //JSON.parse(localStorage.getItem('productList') || '[]');
-    
-    
-    this.shoppingList = [ ...(await getList('shoppingList'))];
-    console.log(this.shoppingList)
-    //JSON.parse(localStorage.getItem('shoppingList') || '[]');
+    this.productList = await getList('productList');
+    this.shoppingList = await getList('shoppingList');
   },
   computed: {
     sorted() {
