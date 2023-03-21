@@ -3,11 +3,15 @@
         <v-app-bar color="surface">
             <v-app-bar-title color="text">Account</v-app-bar-title>
         </v-app-bar>
-        <p>{{ auth.email }}</p>
+        <v-avatar id="avatar" :image="auth.currentUser.photoURL" size="80"></v-avatar>
+        <p class="d-flex justify-center my-6">Welcome, {{ auth.currentUser.displayName }}</p>
         <v-btn
+        id="logout-button"
+        block
+        prepend-icon="mdi-exit-to-app"
         @click="handleSignOut"
         >
-        Sing out
+        Sign out
         </v-btn>
         <NavigationDrawers />
     </v-container>
@@ -27,3 +31,14 @@ const handleSignOut = () => {
     })
 };
 </script>
+<style>
+#avatar {
+    margin: auto;
+    display: flex;
+}
+#logout-button {
+    position: fixed;
+    bottom: 100px;
+    right: 0px;
+}
+</style>

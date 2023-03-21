@@ -2,7 +2,6 @@
     <v-bottom-navigation
       height="80px"
       bg-color="surface"
-      grow
     >
     <RouterLink to="/home-stock">
       <v-btn>

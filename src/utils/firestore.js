@@ -31,7 +31,6 @@ export const saveList = async (listName, updatedList) => {
 export const getList = async (listName) => {
     const ref = doc(db, listName, auth.currentUser.uid);
     const snap = await getDoc(ref);
-
     if(snap.exists()) {
         return snap.data().list;
     } else {

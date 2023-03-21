@@ -1,13 +1,15 @@
 <template>
-    <h1>User Login</h1>
-    <p>Login with one of these available social accounts...</p>
-    <v-btn
-      color="primary"
-      prepend-icon="mdi-google"
-      @click="signInWithGoogle"
-    >
-      Sing in with Google
-    </v-btn>
+    <section id="login">
+        <h1 class="justify-start pb-4">Log into <br>your account</h1>
+        <p class="py-6">Login with one of these available social accounts...</p>
+        <v-btn
+        class="ma-12"
+        prepend-icon="mdi-google"
+        @click="signInWithGoogle"
+        >
+        Sing in with Google
+        </v-btn>
+    </section>
 </template>
 <script setup>
 import {
@@ -30,5 +32,10 @@ const signInWithGoogle = ()=> {
         console.log(error)
     })
 }
-
 </script>
+<style>
+#login button {
+    border-radius: 20px;
+    margin: auto;
+}
+</style>
