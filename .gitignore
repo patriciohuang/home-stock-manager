@@ -26,3 +26,6 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+# vite pwa plugin dev-dist folder generated for testing pwa locally
+dev-dist/
