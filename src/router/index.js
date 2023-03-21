@@ -10,7 +10,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { async } from '@firebase/util'
 
 if("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js").then(registation => {
+  navigator.serviceWorker.register("../../sw.js").then(registation => {
     console.log("SW Registered!");
     console.log(registation);
   }).catch(error => {
