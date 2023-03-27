@@ -2,6 +2,7 @@
     <v-bottom-navigation
       height="80px"
       bg-color="surface"
+      class="bottom-nav"
     >
     <RouterLink to="/home-stock">
       <v-btn>
@@ -30,3 +31,9 @@
     data: () => ({ value: 1 }),
   }
 </script>
+<style>
+.bottom-nav {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+</style>
