@@ -16,7 +16,9 @@
     },
     computed: {
       show() {
-        return this.shoppingList.some(element => element.checked)
+        if(this.shoppingList.length) {
+          return this.shoppingList.some(element => element.checked)
+        }
       }
     }
   }
