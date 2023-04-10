@@ -23,13 +23,14 @@
 import AddToStock from '@/components/AddToStock.vue'
 import NavigationDrawers from '@/components/NavigationDrawers.vue';
 import { saveList } from  '@/utils/firestore'
+import { getList } from '../utils/firestore';
 export default {
   components: { AddToStock, NavigationDrawers },
   data: ()=> ({
     shoppingList: [],
   }),
-  mounted() {
-    this.shoppingList = JSON.parse(localStorage.getItem('shoppingList') || '[]');
+  async mounted() {
+    this.shoppingList = await getList('shoppingList');
   },
   computed: {
     pendingList() {
@@ -38,20 +39,19 @@ export default {
   },
   methods: {
     addToStock: async function({item, date}) {
-      console.log(item, date)
-      const list = JSON.parse(localStorage.getItem('productList') || '[]');
+      const list = await getList('productList');
       list.push({
         id: Date.now(),
         name: item.name,
         date
       });
       saveList('productList', list)
-      localStorage.setItem('productList', JSON.stringify(list));
+      //localStorage.setItem('productList', JSON.stringify(list));
 
       const index = this.shoppingList.indexOf(item);
       this.shoppingList.splice(index, 1);
       saveList('shoppingList', this.shoppingList);
-      localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
+      //localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
     }
   }
 }

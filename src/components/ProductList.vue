@@ -23,7 +23,7 @@ export default {
     shoppingList: [],
   }),
   async mounted() {
-    this.productList = await getList('productList');
+    this.productList = await  getList('productList');
     this.shoppingList = await getList('shoppingList');
   },
   computed: {
@@ -38,7 +38,7 @@ export default {
       const index = this.productList.indexOf(id)
       this.productList.splice(index, 1);
       await saveList('productList', this.productList)
-      localStorage.setItem('productList', JSON.stringify(this.productList));
+      //localStorage.setItem('productList', JSON.stringify(this.productList));
     },
     addItemShopping: async function(item) {
       const name = item.name;
@@ -49,7 +49,7 @@ export default {
         checked: false
       });
       await saveList('shoppingList', this.shoppingList)
-      localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
+      //localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
       this.deleteProduct(item);
     }
   }

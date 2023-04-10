@@ -1,5 +1,5 @@
 <template> 
-  <v-container>
+  <v-container id="shopping-list-container">
     <v-app-bar color="surface">
       <v-app-bar-title>Shopping List</v-app-bar-title>
     </v-app-bar>
@@ -35,20 +35,20 @@ export default {
   data: ()=> ({
     shoppingList: [],
   }),
-  mounted() {
-    this.shoppingList = JSON.parse(localStorage.getItem('shoppingList') || '[]');
+  async mounted() {
+    const list = await getList('shoppingList');
   },
   methods: {
       deleteItem: async function (item) {
         const index = this.shoppingList.indexOf(item)
         this.shoppingList.splice(index, 1);
         saveList('shoppingList', this.shoppingList);
-        localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
+        //localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
       },
       toggle: async function(item) {
         item.modified = Date.now();
         saveList('shoppingList', this.shoppingList);
-        localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
+        //localStorage.setItem('shoppingList', JSON.stringify(this.shoppingList));
       }
     }
 }

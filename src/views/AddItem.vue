@@ -31,7 +31,7 @@
 import addSuggestion from '@/utils/suggestion'
 import SuggestionList from '@/components/SuggestionList.vue'
 import GoBack from '@/components/GoBack.vue'
-import { saveList } from '../utils/firestore'
+import { getList, saveList } from '../utils/firestore'
 export default {
   components: { SuggestionList, GoBack },
   data: ()=>({
@@ -47,7 +47,7 @@ export default {
   methods: {
     addItem: async function(name) {
       if(name) {
-        const list = JSON.parse(localStorage.getItem('shoppingList') || '[]');
+        const list = await getList('shoppingList');
         list.push({
           id: Date.now(),
           name,
@@ -55,7 +55,7 @@ export default {
           modified: Date.now()
         });
         saveList('shoppingList', list)
-        localStorage.setItem('shoppingList', JSON.stringify(list));
+        //localStorage.setItem('shoppingList', JSON.stringify(list));
         addSuggestion(name);
         this.$router.go(-1)
       }

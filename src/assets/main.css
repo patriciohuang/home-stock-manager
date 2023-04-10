@@ -20,7 +20,9 @@ a {
   padding: 2rem;
   font-weight: normal;
 }
-
+#shopping-list-container{
+  padding-bottom: 100px;
+}
 @media (hover: hover) {
 
 }

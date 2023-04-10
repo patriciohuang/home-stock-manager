@@ -28,15 +28,15 @@
   </v-theme-provider>
 </template>
 <script>
-import { saveList } from '../utils/firestore';
+import { saveList, getList } from '../utils/firestore';
 
 export default {
   emits: ['addItem'],
   data: ()=> ({
     suggestionList: [],
   }),
-  mounted() {
-    this.suggestionList = JSON.parse(localStorage.getItem('suggestionList') || '[]');
+  async mounted() {
+    this.suggestionList = await getList('suggestionList');
   },
   methods: {
     addItem: function(item) {
@@ -46,7 +46,7 @@ export default {
         const index = this.suggestionList.indexOf(item)
         this.suggestionList.splice(index, 1);
         saveList('suggestionList', this.suggestionList)
-        localStorage.setItem('suggestionList', JSON.stringify(this.suggestionList));
+        //localStorage.setItem('suggestionList', JSON.stringify(this.suggestionList));
       },
   }
 }
