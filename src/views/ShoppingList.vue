@@ -29,14 +29,14 @@
 <script>
 import AlertPending from '@/components/AlertPending.vue'
 import NavigationDrawers from '@/components/NavigationDrawers.vue';
-import { saveList } from '../utils/firestore';
+import { saveList, getList } from '../utils/firestore'
 export default {
   components: { AlertPending, NavigationDrawers },
   data: ()=> ({
     shoppingList: [],
   }),
   async mounted() {
-    const list = await getList('shoppingList');
+    this.shoppingList = await getList('shoppingList');
   },
   methods: {
       deleteItem: async function (item) {
