@@ -14,7 +14,6 @@
               label="Item name"
               required
               clearable
-              bg-color="surface"
             ></v-text-field>
           </v-col>
         </v-row>
