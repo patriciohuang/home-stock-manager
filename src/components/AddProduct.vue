@@ -8,6 +8,7 @@
             label="Product name"
             clearable
             :error="v$.name.$error"
+            bg-color="surface"
           ></v-text-field>
           <span class="text-red" v-if="v$.name.$error">Product name is requred.</span>
         </v-col>
@@ -17,6 +18,7 @@
             v-model="expirationDate"
             label="Expiration day"
             :error="v$.expirationDate.$error"
+            bg-color="surface"
           ></v-text-field>
           <span class="text-red" v-if="v$.expirationDate.$error">Expiration date is requred.</span>
         </v-col>
